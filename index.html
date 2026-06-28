@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Warung Arsya-Arsy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+
+</head>
+<body class="is-loading">
+
+<div id="loadingScreen">
+  <div class="loader-content">
+    <div class="loader-logo">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+    </div>
+    <span class="loader-text">Warung Arsya-Arsy</span>
+    <div class="loader-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<div class="topbar">
+  Pesan via WhatsApp<br>kami siapkan, kamu tinggal datang &amp; bayar 🛒
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="#">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Warung Arsya-Arsy</span>
+      </div>
+    </a>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Cari produk sembako..." autocomplete="off"/>
+      <svg class="si" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </div>
+    <div class="header-right">
+      <button class="cart-trigger" onclick="openCart()" aria-label="Buka keranjang">
+        <svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-label">Keranjang</span>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mob-searchbar">
+  <div class="mob-searchbar-inner">
+    <input type="text" id="searchInputMob" placeholder="Cari produk..." autocomplete="off"/>
+    <svg class="si" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        <span>Buka Setiap Hari, 06.30-21.30</span>
+      </div>
+      <h1>Harga Pas,<br><em>Belanja Puas</em></h1>
+      <p class="hero-desc">
+        Kami hadir untuk memenuhi kebutuhan sehari-hari masyarakat melalui pilihan produk yang lengkap, harga yang bersaing, dan pelayanan yang mengutamakan kepuasan pelanggan. Setiap produk kami hadirkan dengan kualitas terbaik agar Anda dapat berbelanja dengan nyaman dan tenang.
+      </p>
+      <div class="hero-badges">
+        <span class="hero-badge rating">
+          <span class="star-rating" style="font-size:13px"><span class="star-row star-bg">★★★★★</span><span class="star-row star-fg" style="width:96%">★★★★★</span></span>
+          <b>4.8</b>&nbsp;dari 100+ ulasan
+        </span>
+        <span class="hero-badge time">
+          <svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Siap dalam <b>±10 menit</b>
+        </span>
+      </div>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('productSection').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+          </svg>
+          Belanja Sekarang
+        </button>
+        <a class="btn-ghost" href="https://wa.me/6285188906264" target="_blank">Hubungi Kami</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo-frame">
+        <img src="warung.png" alt="Suasana di dalam Warung Arsya-Arsy" loading="eager">
+        <span class="hero-photo-tag"><span></span>Buka Sekarang</span>
+      </div>
+      <div class="floating-chip chip-rating">
+        <span class="fc-icon">⭐</span>
+        <span>4.8 Rating<small>Kepuasan pelanggan</small></span>
+      </div>
+      <div class="floating-chip chip-time">
+        <span class="fc-icon">⏱️</span>
+        <span>±10 menit<small>Pesanan disiapkan</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="how-inner">
+    <div class="how-step reveal">
+      <div class="how-num">1</div>
+      <div class="how-text"><strong>Pilih Produk</strong>Tambah ke keranjang</div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">2</div>
+      <div class="how-text"><strong>Kirim via WA</strong>Pesanan terformat otomatis</div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">3</div>
+      <div class="how-text"><strong>Kami Siapkan</strong>Semua produk disiapkan</div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">4</div>
+      <div class="how-text"><strong>Ambil &amp; Bayar</strong>Tinggal datang ke warung</div>
+    </div>
+  </div>
+</section>
+
+<div class="layout" id="productSection">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Kategori</div>
+      <div class="cat-list" id="catList"></div>
+    </div>
+  </aside>
+  <section class="product-area">
+    <div class="mob-cat-bar">
+      <div class="mob-cat-scroll" id="mobCatList"></div>
+    </div>
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <div class="toolbar-title" id="toolbarTitle">Semua Produk</div>
+        <div class="toolbar-count" id="toolbarCount"></div>
+      </div>
+      <div class="sort-wrap">
+        <select id="sortSelect" onchange="renderProducts()">
+          <option value="default">Default</option>
+          <option value="price-asc">Termurah</option>
+          <option value="price-desc">Termahal</option>
+          <option value="name">A–Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+</div>
+
+<div class="float-bar" id="floatBar">
+  <div class="float-bar-info">
+    <div class="float-bar-items" id="fbItems">0 produk</div>
+    <div class="float-bar-total" id="fbTotal">Rp 0</div>
+  </div>
+  <button class="float-bar-btn" onclick="openCart()">
+    <svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+      <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+    </svg>
+    Lihat Keranjang
+  </button>
+</div>
+
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeCartOnBg(event)">
+  <div class="drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-header">
+      <span class="drawer-title">Keranjang Belanja</span>
+      <button class="drawer-close" onclick="closeCart()">
+        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-footer" id="drawerFooter" style="display:none">
+      <div class="total-row">
+        <span class="total-label">Total Pesanan</span>
+        <span class="total-val" id="drawerTotal">Rp 0</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nama Pemesan</label>
+        <input class="form-input" type="text" id="custName" placeholder="Masukkan nama kamu..."/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Catatan (opsional)</label>
+        <textarea class="form-input" id="custNote" rows="2" placeholder="Contoh: pisah per jenis produk..."></textarea>
+      </div>
+      <button class="btn-checkout" onclick="checkout()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.523 5.836L0 24l6.31-1.508A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.876 0-3.638-.491-5.165-1.349l-.371-.22-3.744.895.923-3.643-.24-.375A9.942 9.942 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+        Pesan via WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <span class="toast-dot"></span>
+  <span id="toastMsg"></span>
+</div>
+
+<div class="review-overlay" id="reviewOverlay" onclick="closeReviewsOnBg(event)">
+  <div class="review-modal">
+    <div class="review-header">
+      <span class="review-header-title" id="reviewTitle">Ulasan Produk</span>
+      <button class="drawer-close" onclick="closeReviews()">
+        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="review-body" id="reviewBody"></div>
+  </div>
+</div>
+
+<!-- FOOTER — redesigned -->
+<footer>
+  <div class="footer-top">
+    <!-- Left: brand + contact -->
+    <div class="footer-left reveal">
+      <div class="footer-brand-name">Warung Arsya-Arsy</div>
+      <div class="footer-brand-sub">Di warung kami, Anda dapat menemukan berbagai kebutuhan sehari-hari yang lengkap dengan harga yang bersahabat. Kami percaya bahwa pelayanan yang baik, produk berkualitas, dan harga yang pas adalah kunci untuk menghadirkan kepuasan dalam setiap belanja.</div>
+      <div class="footer-contact">
+      </div>
+    </div>
+
+    <!-- Right: map -->
+    <div class="footer-map-block reveal">
+      <div class="footer-map-label">Lokasi Warung</div>
+      <div class="footer-map-card">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.5210334704757!2d104.39309797497693!3d-4.31271419566127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e38fd00459f69d3%3A0x1dbc0b3d9526483e!2sTOKO%20ARSYA%20%26%20ARSY!5e0!3m2!1sen!2sid!4v1782597504377!5m2!1sen!2sid"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="Lokasi Toko Arsya & Arsy"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <a
+        class="footer-map-open"
+        href="https://maps.google.com/?q=Toko+Arsya+%26+Arsy"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        Buka di Google Maps
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2026 Jakastra Official. All Rights Reserved.
+  </div>
+</footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>
