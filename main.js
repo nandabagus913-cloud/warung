@@ -22,7 +22,7 @@ const products = [
 ];
 
 /* ════════════════════════════════════════
-   RATING & ULASAN — dibuat deterministik per produk
+   RATING & ULASAN — deterministik per produk
 ════════════════════════════════════════ */
 const reviewerNames = ["Siti Aminah","Budi Santoso","Rina Wijaya","Dedi Pratama","Maya Putri","Agus Salim","Lestari Ningsih","Hendra Gunawan","Fitri Handayani","Joko Susilo","Rahmawati","Eko Prasetyo"];
 const reviewComments = [
