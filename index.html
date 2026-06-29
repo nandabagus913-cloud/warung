@@ -10,7 +10,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="id_ID"/>
 <meta property="og:site_name" content="Warung Arsya-Arsy"/>
-<meta property="og:url" content="https://warung-arsya-arsy.netlify.app/"/>
+<meta property="og:url" content="https://warung-arsya-arsy.netlify.app"/>
 <meta property="og:title" content="Warung Arsya-Arsy — Sembako Berkualitas"/>
 <meta property="og:description" content="Sembako lengkap, harga bersaing. Pesan via WhatsApp, kami siapkan, kamu tinggal datang & bayar."/>
 <meta property="og:image" content="https://warung-arsya-arsy.netlify.app/thumbnail.png"/>
@@ -188,6 +188,15 @@
         </select>
       </div>
     </div>
+    <div class="request-row">
+      <span class="request-row-text">Produk yang kamu cari tidak ada?</span>
+      <button class="request-link" onclick="openRequestModal()">
+        <svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="#fff" fill="none">
+          <circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16" r="0.5" fill="#fff"/>
+        </svg>
+        Pesan di sini
+      </button>
+    </div>
     <div class="product-grid" id="productGrid"></div>
   </section>
 </div>
@@ -226,6 +235,7 @@
       <div class="form-group">
         <label class="form-label">Nama Pemesan</label>
         <input class="form-input" type="text" id="custName" placeholder="Masukkan nama kamu..."/>
+        <span class="form-error">Nama wajib diisi sebelum pesan</span>
       </div>
       <div class="form-group">
         <label class="form-label">Catatan (opsional)</label>
@@ -260,6 +270,55 @@
     <div class="review-body" id="reviewBody"></div>
   </div>
 </div>
+
+<!-- Modal: Request Produk yang tidak ditemukan -->
+<div class="request-overlay" id="requestOverlay" onclick="closeRequestOnBg(event)">
+  <div class="request-modal">
+    <div class="drawer-handle"></div>
+    <div class="drawer-header">
+      <span class="drawer-title">Pesan Produk Lain</span>
+      <button class="drawer-close" onclick="closeRequestModal()">
+        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="request-body">
+      <p class="request-hint">Tidak ketemu produknya di katalog? Tulis di sini, nanti kami cek &amp; balas lewat WhatsApp.</p>
+      <div class="form-group">
+        <label class="form-label">Nama Kamu</label>
+        <input class="form-input" type="text" id="reqName" placeholder="Masukkan nama kamu..."/>
+        <span class="form-error" id="reqNameError">Nama wajib diisi</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nama Produk</label>
+        <input class="form-input" type="text" id="reqProduct" placeholder="Contoh: Royco Kaldu Sapi 500gr"/>
+        <span class="form-error" id="reqProductError">Nama produk wajib diisi</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Jumlah</label>
+        <input class="form-input" type="text" id="reqQty" placeholder="Contoh: 2 pcs / 1 kg"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Catatan (opsional)</label>
+        <textarea class="form-input" id="reqNote" rows="2" placeholder="Merek tertentu, ukuran, dll..."></textarea>
+      </div>
+      <button class="btn-checkout" onclick="submitRequest()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.523 5.836L0 24l6.31-1.508A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.876 0-3.638-.491-5.165-1.349l-.371-.22-3.744.895.923-3.643-.24-.375A9.942 9.942 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+        Kirim Permintaan via WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Kembali ke atas">
+  <svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/>
+  </svg>
+</button>
 
 <!-- FOOTER — redesigned -->
 <footer>
