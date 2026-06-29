@@ -1006,3 +1006,135 @@ body{animation:bodyFadeIn .45s ease both}
 @media(prefers-reduced-motion:reduce){
   .floating-chip,.hero-photo-tag span{animation:none!important}
 }
+
+/* ════════════════════════════════════════
+   REQUEST LINK — "produk tidak ada" CTA in toolbar
+════════════════════════════════════════ */
+.request-row{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  margin:16px 0 22px;
+}
+.request-row-text{font-size:.82rem;font-weight:700;color:var(--text-2);line-height:1.3}
+.request-link{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;flex-shrink:0;
+  background:var(--pink);border:none;
+  border-radius:var(--r-pill);padding:9px 16px;
+  font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap;
+  box-shadow:var(--shadow-pink);
+  transition:transform var(--transition-bounce),box-shadow var(--transition-smooth),opacity .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.request-link:active{transform:scale(.97);opacity:.9}
+.request-link svg{width:16px;height:16px;flex-shrink:0}
+@media(min-width:900px){.request-link:hover{transform:scale(1.03);box-shadow:var(--shadow-pink-lg)}}
+@media(max-width:480px){
+  .request-row{flex-direction:column;align-items:stretch;gap:14px;margin:18px 0 28px}
+  .request-row-text{text-align:center}
+  .request-link{width:100%}
+}
+
+.empty-cta{
+  margin-top:18px;
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--pink);color:#fff;border-radius:var(--r-pill);
+  padding:11px 20px;font-size:.84rem;font-weight:700;
+  box-shadow:var(--shadow-pink);
+  transition:transform var(--transition-bounce),box-shadow var(--transition-smooth);
+}
+.empty-cta:active{transform:scale(.97)}
+.empty-cta svg{width:15px;height:15px;stroke:#fff;fill:none;flex-shrink:0}
+@media(min-width:900px){.empty-cta:hover{transform:scale(1.03);box-shadow:var(--shadow-pink-lg)}}
+
+/* ════════════════════════════════════════
+   REQUEST MODAL — pesan produk yang tidak ada
+════════════════════════════════════════ */
+.request-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(30,16,41,.5);z-index:420;
+  backdrop-filter:blur(3px);
+}
+.request-overlay.open{display:flex;align-items:flex-end;justify-content:center}
+@media(min-width:600px){.request-overlay.open{align-items:center}}
+.request-modal{
+  background:var(--surface);border-radius:20px 20px 0 0;
+  width:100%;max-height:92vh;display:flex;flex-direction:column;
+  box-shadow:0 -8px 40px rgba(30,16,41,.2);
+  animation:slideup .28s cubic-bezier(.34,1.2,.64,1);overflow:hidden;
+}
+@media(min-width:600px){.request-modal{border-radius:20px;max-width:440px;max-height:88vh}}
+.request-body{flex:1;overflow-y:auto;padding:4px 20px 24px;-webkit-overflow-scrolling:touch}
+.request-hint{font-size:.82rem;color:var(--text-2);line-height:1.55;margin-bottom:16px}
+
+.form-error{
+  display:none;
+  font-size:.72rem;font-weight:600;color:#e0405e;
+  margin-top:5px;padding-left:2px;
+}
+.form-group.has-error .form-input{border-color:#e0405e;box-shadow:0 0 0 3px rgba(224,64,94,.1)}
+.form-group.has-error .form-error{display:block}
+
+/* ════════════════════════════════════════
+   SCROLL TO TOP BUTTON
+════════════════════════════════════════ */
+.scroll-top-btn{
+  position:fixed;
+  right:14px;bottom:84px;
+  width:42px;height:42px;
+  background:var(--surface);color:var(--purple);
+  border:1.5px solid var(--border-strong);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-md);
+  z-index:290;
+  opacity:0;transform:translateY(12px) scale(.85);
+  pointer-events:none;
+  transition:opacity .22s ease,transform .22s cubic-bezier(.34,1.4,.64,1),background .18s,border-color .18s;
+}
+.scroll-top-btn.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
+.scroll-top-btn svg{width:18px;height:18px;stroke:currentColor;fill:none}
+.scroll-top-btn:active{background:var(--purple-soft);border-color:var(--purple)}
+@media(min-width:600px){
+  .scroll-top-btn{right:24px;bottom:32px}
+  .scroll-top-btn:hover{background:var(--purple-soft);border-color:var(--purple);transform:translateY(-2px) scale(1)}
+}
+/* lift above float-bar on mobile when cart has items */
+body.has-float-bar .scroll-top-btn{bottom:148px}
+@media(min-width:600px){body.has-float-bar .scroll-top-btn{bottom:32px}}
+
+/* ════════════════════════════════════════
+   CARD QUANTITY STEPPER — replaces single "Tambah" once item is in cart
+════════════════════════════════════════ */
+.card-qty-stepper{
+  flex:1;display:flex;align-items:center;justify-content:space-between;
+  background:var(--pink);border-radius:var(--r-pill);
+  min-height:40px;padding:0 4px;
+  box-shadow:var(--shadow-pink);
+}
+.card-qty-stepper .qty-btn-card{
+  width:32px;height:32px;flex-shrink:0;
+  background:rgba(255,255,255,.18);color:#fff;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.05rem;font-weight:800;
+  transition:background .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.card-qty-stepper .qty-btn-card:active{background:rgba(255,255,255,.32)}
+.card-qty-stepper .qty-num-card{
+  color:#fff;font-size:.84rem;font-weight:800;min-width:20px;text-align:center;
+}
+
+/* ════════════════════════════════════════
+   SKELETON LOADING — product grid placeholder
+════════════════════════════════════════ */
+.skeleton-card{
+  background:var(--surface);border-radius:var(--r-card);
+  border:1.5px solid var(--border);overflow:hidden;
+}
+.skeleton-img{aspect-ratio:1;background:linear-gradient(100deg,var(--surface2) 30%,var(--border) 50%,var(--surface2) 70%);background-size:200% 100%;animation:skeleton-shimmer 1.4s ease-in-out infinite}
+.skeleton-body{padding:10px}
+.skeleton-line{height:10px;border-radius:5px;background:linear-gradient(100deg,var(--surface2) 30%,var(--border) 50%,var(--surface2) 70%);background-size:200% 100%;animation:skeleton-shimmer 1.4s ease-in-out infinite;margin-bottom:8px}
+.skeleton-line.w-60{width:60%}
+.skeleton-line.w-80{width:80%}
+.skeleton-line.w-40{width:40%;height:14px;margin-top:4px}
+@keyframes skeleton-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){.skeleton-img,.skeleton-line{animation:none;opacity:.6}}
